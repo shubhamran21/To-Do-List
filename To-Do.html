@@ -1,0 +1,72 @@
+<html>
+<head>
+   <title>TO-DO List</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+  body {
+    background: #0F2E50
+  }
+
+  h1{
+    text-align: center
+  }
+</style>
+</head>
+
+<body>
+ <div class="section mt-5">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-12 col-md-8">
+                <div id="main" class="card">
+                    <div class="card-body">
+      <h1>To-Do List</h1><br>
+      <div class="row">
+        <form>
+          <div class="form-group">
+           <input type="text" class="form-control" name="task"  placeholder="To-Do item" id="box" >
+          </div>
+  
+          <div class="form-group">
+           <input type="button" class="btn btn-outline-primary" value="Add" onclick="additem()">
+          </div>
+          <br>        
+          <button type="submit" class="btn btn-outline-danger"> Clear Tasks</button>
+       
+        </form>
+      </div>
+    <div class="row">
+      <ul id="list_item">
+      </ul>
+    </div>
+ </div >
+<body>
+      <script>
+   function additem(){
+    let item=document.getElementById("box");
+    let list_item=document.getElementById("list_item");
+    if(item.value!=""){
+      let make_li=document.createElement("li");
+      make_li.appendChild(document.createTextNode(item.value));
+      list_item.appendChild(make_li);
+      item.value=""
+
+      make_li.onclick=function(){
+          this.parentNode.removeChild(this);
+      }  
+    }
+    else{
+        alert("please add a value to item");
+    }
+   }
+ </script>
+</body>
+</html>
+
+
+
+
+
+
